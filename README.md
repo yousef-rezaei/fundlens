@@ -36,12 +36,11 @@ commit can change the API and the UI together. See
 ## Getting started
 
 ```bash
-git clone git@github.com:<you>/fundlens.git
+git clone git@github.com:yousef-rezaei/fundlens.git
 cd fundlens
 cp .env.example .env        # fill in real values; never commit .env
 
-# Recommended: install pre-commit hooks (requires Python 3.13)
-pipx install pre-commit
+pip install pre-commit
 pre-commit install
 ```
 

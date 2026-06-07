@@ -3,6 +3,8 @@
 default_language_version:
   python: python3.13
 
+# Hygiene hooks for all files; Python quality hooks run via Poetry so the
+# versions always match backend/poetry.lock. Frontend hooks are added in Step 3.
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
@@ -18,3 +20,18 @@ repos:
       - id: detect-private-key
       - id: mixed-line-ending
         args: [--fix=lf]
+
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff (backend)
+        entry: poetry --project backend run ruff check --fix
+        language: system
+        types: [python]
+        files: ^backend/
+      - id: black
+        name: black (backend)
+        entry: poetry --project backend run black
+        language: system
+        types: [python]
+        files: ^backend/
