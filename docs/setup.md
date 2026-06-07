@@ -24,4 +24,24 @@ pre-commit install
 pre-commit run --all-files
 ```
 
-Backend and frontend setup instructions are added in Steps 2 and 3.
+## Backend (Django + Poetry)
+
+```bash
+cd backend
+poetry install                          # creates .venv/ and installs locked deps
+poetry run python manage.py migrate
+poetry run python manage.py runserver
+```
+
+Quality checks:
+
+```bash
+poetry run ruff check .
+poetry run black --check .
+poetry run mypy .
+poetry run pytest
+```
+
+Settings modules: `config.settings.dev` (default for manage.py and tests) and
+`config.settings.prod` (default for wsgi/asgi). Configuration comes from the
+repo-root `.env` file — see `.env.example`.
