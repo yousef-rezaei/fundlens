@@ -1,0 +1,9 @@
+{
+  "app": {
+    "title": "FundLens",
+    "tagline": "Intelligence documentaire IA pour la conformité des fonds"
+  },
+  "language": {
+    "label": "Langue"
+  }
+}
